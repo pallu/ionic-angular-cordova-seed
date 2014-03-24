@@ -24,6 +24,42 @@ angular.module('starter.services', [])
     }
   }
 })
+.factory('accountService', function ($http, $q) {
+    var accountServiceAPI = {};
+    var d = $q.defer();
+
+    accountServiceAPI.login = function (UserName, Password, callback) {
+        return $http.post(
+                  basePortalUrl + "Account/AjaxLogOn",
+                  { UserName: UserName, Password: Password, RememberMe: false })
+            .then(
+                //success
+                function (res) {
+                    return JSON.parse(res.data);
+                    d.resolve();
+                },
+                //fail
+                function () {
+                    d.reject();
+                }
+                );
+        return d.promise;
+    };
+    accountServiceAPI.logout = function () {
+        return $http.get(basePortalUrl + "Account/AjaxLogOff")
+            .then(
+                //success
+                function (res) {
+                    return JSON.parse(res.data);
+                    d.resolve();
+                },
+                function () { d.reject(); } //error
+                );
+        return d.promise;
+    };
+
+    return accountServiceAPI;
+})
 .factory('emsEventsService', function ($http, $q) {
     var emsEventsServiceAPI = {};
     var d = $q.defer();

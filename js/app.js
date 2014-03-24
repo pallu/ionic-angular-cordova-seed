@@ -5,12 +5,22 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 var basePortalUrl = "http://celgene.tsgstage.com/";
+var loggedIn = false;
 
+//$(document).bind("mobileinit", function () {
+//    // Make your jQuery Mobile framework configuration changes here!
+//    $.support.cors = true;
+//    $.mobile.allowCrossDomainPages = true;
+
+//});
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
 
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
+    //enable CORS
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -92,11 +102,22 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
         }
 
     })
+    .state('tab.account', {
+        url: '/account',
+        views: {
+            'main-tab': {
+                templateUrl: 'templates/account.html',
+                controller: 'accountCtrl'
+            }
+        }
+
+    })
     ;
 
   // if none of the above states are matched, use this as the fallback
     //$urlRouterProvider.otherwise('/tab/pets');
-  $urlRouterProvider.otherwise('/tab/main');
+    //$urlRouterProvider.otherwise('/tab/main');
+  $urlRouterProvider.otherwise('/tab/account');
 
 });
 
