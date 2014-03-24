@@ -23,4 +23,28 @@ angular.module('starter.services', [])
       return pets[petId];
     }
   }
-});
+})
+.factory('emsEventsService', function ($http, $q) {
+    var emsEventsServiceAPI = {};
+    var d = $q.defer();
+    debugger;
+    emsEventsServiceAPI.getAttendeesListByEventStatus = function (StatusType) {
+        return $http.post(
+                basePortalUrl + "EmsEvents/GetAttendeesListByEventStatus",
+                { StatusType: StatusType }
+            ).then(
+                function (res) {
+                    //debugger;
+                    return res.data;
+                    d.resolve();
+                },
+                //fail
+                function () {
+                    d.reject();
+                }
+            );
+        return d.promise;
+    };
+    return emsEventsServiceAPI;
+})
+;

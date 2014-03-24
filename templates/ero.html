@@ -1,0 +1,363 @@
+﻿<ion-view title="Register">
+  <ion-content has-header="true" padding="true" has-footer="true">
+<form>
+            <div id="eroStep1">
+                <ul data-role="listview" data-inset="true" class="ui-body ui-body-a ui-corner-all">
+                    <li>
+                        <div class="ui-field-contain">
+                            <label for="DriverID">Driver: <a href="#popupInfoDriver" data-rel="popup" data-transition="pop" title="Learn more"><i class="fa fa-question-circle"></i></a></label>
+                            <select name="DriverID" id="DriverID">
+                                <option value="100">Date</option>
+                                <option value="102">Speaker</option>
+                            </select>
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ui-field-contain">
+                            <label for="eventTypeID">Event Type:</label>
+                            <div data-role="controlgroup" data-type="horizontal">
+                                <input type="radio" name="eventTypeID" id="radio-choice-h-2a" value="on" checked="checked">
+                                <label for="radio-choice-h-2a">Live Program</label>
+                                <input type="radio" name="eventTypeID" id="radio-choice-h-2b" value="off">
+                                <label for="radio-choice-h-2b">Webcast Program</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ui-field-contain">
+                            <label for="CounterPartID">Counterpart:</label>
+                            <select name="CounterPartID" id="CounterPartID">
+                                <option value="100">Counterpart 1</option>
+                                <option value="102">Counterpart 2</option>
+                            </select>
+                        </div>
+                    </li>
+                </ul>
+                <ul data-role="listview" data-inset="true" class="ui-body ui-body-a ui-corner-all">
+                    <li>
+                        <div class="ui-field-contain">
+                            <fieldset data-role="controlgroup" data-type="horizontal">
+                                <legend>Date 1:</legend>
+                                <div class="ui-grid-b">
+                                    <div class="ui-block-a">
+                                        <input type="date" data-clear-btn="false" placeholder="date" id="date1" /></div>
+                                    <div class="ui-block-b">
+                                        <input type="time" data-clear-btn="false" placeholder="time" id="time1" /></div>
+                                    <div class="ui-block-c">
+                                        <select id="timezoneid1">
+                                            <option>Eastern</option>
+                                            <option>Central</option>
+                                            <option>Mountain</option>
+                                            <option>Pacific</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                            </fieldset>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ui-field-contain">
+                            <fieldset data-role="controlgroup" data-type="horizontal">
+                                <legend>Date 2:</legend>
+                                <div class="ui-grid-b">
+                                    <div class="ui-block-a">
+                                        <input type="date" data-clear-btn="false" placeholder="date" id="date2" /></div>
+                                    <div class="ui-block-b">
+                                        <input type="time" data-clear-btn="false" placeholder="time" id="time2" /></div>
+                                    <div class="ui-block-c">
+                                        <select id="timezoneid2">
+                                            <option>Eastern</option>
+                                            <option>Central</option>
+                                            <option>Mountain</option>
+                                            <option>Pacific</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ui-field-contain">
+                            <label for="eventLocationID">Event Type:</label>
+                            <div data-role="controlgroup" data-type="horizontal">
+                                <input type="radio" name="eventLocationID" id="outofoffice" value="on" checked="checked">
+                                <label for="outofoffice">Out of Office</label>
+                                <input type="radio" name="eventLocationID" id="inoffice" value="off">
+                                <label for="inoffice">In Office</label>
+                                <input type="radio" name="eventLocationID" id="novenue" value="off">
+                                <label for="novenue">No Venue (Virtual Program)</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ui-field-contain">
+                            <label for="maxAttendees">Anticipated maximum # of attendees:</label>
+                            <input type="number" data-clear-btn="true" name="maxAttendees" min="1" id="maxAttendees" value="">
+                        </div>
+                    </li>
+                </ul>
+                <ul data-role="listview" data-inset="true" class="ui-body ui-body-a ui-corner-all">
+                    <li>
+                        <div class="ui-field-contain">
+                            <label for="Speaker1">Speaker 1</label>
+                            <select name="Speaker1" id="Speaker1">
+                                <option value="1">Speaker A</option>
+                                <option value="2">Speaker b</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ui-field-contain">
+                            <label for="Speaker2">Speaker 2</label>
+                            <select name="Speaker2" id="Speaker2">
+                                <option value="1">Speaker A</option>
+                                <option value="2">Speaker b</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <div data-role="controlgroup" data-type="horizontal">
+                            <input type="radio" name="lodgingType" id="radioLodging1" value="on" checked="checked">
+                            <label for="radioLodging1">Speaker travel/lodging arrangements not required</label>
+                            <input type="radio" name="lodgingType" id="radioLodging2" value="off">
+                            <label for="radioLodging2">Please coordinate speaker travel/lodging arrangements</label>
+                        </div>
+                    </li>
+                    <li>
+                        <label>Please provide information for a suggested hotel if required</label>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <div class="ui-bar">
+                                    <div class="ui-grid-solo">
+                                        <div class="ui-block-a">
+                                            <input type="text" name="hotelName" id="hotelName" placeholder="Name of hotel" /></div>
+                                        <div class="ui-block-a">
+                                            <input type="text" name="hotelAddress" id="hotelAddress" placeholder="Address" /></div>
+                                        <div class="ui-block-a">
+                                            <input type="text" name="hotelCity" id="hotelCity" placeholder="City" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui-block-b">
+                                <div class="ui-bar">
+                                    <div class="ui-grid-solo">
+                                        <div class="ui-block-a">
+                                            <select name="hotelState" id="hotelState">
+                                                <option>NY</option>
+                                                <option>CT</option>
+                                            </select>
+                                        </div>
+                                        <div class="ui-block-a">
+                                            <input type="tel" data-clear-btn="true" name="hotelPhone" id="hotelPhone" placeholder="Phone"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div align="right"><a href="#eroStep2" data-icon="arrow-r" data-role="button" data-inline="true" data-iconpos="right" data-mini="true" data-target="eroStep2">Step 2</a></div>
+            </div>
+            <div id="eroStep2" style="display: none">
+
+                <ul data-role="listview" data-inset="true" class="ui-body ui-body-a ui-corner-all">
+                    <li>Please select or provide a recommendation for this program in the boxes below (one required). HCG will proceed to secure an available venue for your program.
+                                <div data-role="fieldcontain">
+                                    <label for="venue1Name">Venue 1</label>
+                                    <div class="hidden-wrapper">
+                                        <input readonly type="text" name="venue1Name" data-inline="true" id="venue1Name" value="" />
+                                        <!--<button type="reset" data-inline="true" data-theme="b">Reset</button>-->
+                                        <a data-role="button" data-inline="true" data-icon="search" data-iconpos="notext" value="Icon only" data-venuesearch="venue1"></a>
+                                        <input type="hidden" id="venue1ID" name="venue1ID" />
+                                    </div>
+
+
+
+                                </div>
+                    </li>
+                    <li>
+                        <div data-role="fieldcontain">
+                            <label for="venue1Name">Venue 2</label>
+                            <div class="hidden-wrapper">
+                                <input readonly type="text" name="venue2Name" data-inline="true" id="venue2Name" value="" />
+                                <!--<button type="reset" data-inline="true" data-theme="b">Reset</button>-->
+                                <a data-role="button" data-inline="true" data-icon="search" data-iconpos="notext" value="Icon only" data-venuesearch="venue2"></a>
+                                <input type="hidden" id="venue2ID" name="venue2ID" />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ui-corner-all custom-corners">
+                            <div class="ui-bar ui-bar-a">
+                                <h3>OR Enter a venue</h3>
+                            </div>
+                            <div class="ui-body ui-body-a">
+                                <div data-role="controlgroup">
+                                    <div class="ui-grid-solo">
+                                        <input type="text" id="venueName" name="venueName" placeholder="Name" />
+                                    </div>
+                                    <div class="ui-grid-solo">
+                                        <input type="text" id="venueAddress" name="venueAddress" placeholder="Address" />
+                                    </div>
+                                    <div class="ui-grid-a">
+                                        <div class="ui-block-a" style="width: 60%">
+                                            <input type="text" id="venueCity" name="venueCity" placeholder="City" />
+                                        </div>
+                                        <div class="ui-block-b" style="width: 40%">
+                                            <select id="venueState" name="venueState">
+                                                <option>NY</option>
+                                                <option>CT</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-b">
+                                        <div class="ui-block-a">
+                                            <input type="text" id="venueZip" name="venueZip" placeholder="Zip" />
+                                        </div>
+                                        <div class="ui-block-b">
+                                            <input type="tel" id="venuePhone" name="venuePhone" placeholder="Phone" />
+                                        </div>
+                                        <div class="ui-block-c">
+                                            <input type="text" id="venueContact" name="venueContact" placeholder="Contact" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="ui-corner-all custom-corners">
+                            <div class="ui-bar ui-bar-a">
+                                <h3>IN Office Program, please recommend a caterer for this programs</h3>
+                            </div>
+                            <div class="ui-body ui-body-a">
+                                <div data-role="controlgroup">
+                                    <div class="ui-grid-solo">
+                                        <input type="text" id="catererName" name="catererName" placeholder="Name" />
+                                    </div>
+                                    <div class="ui-grid-a">
+                                        <div class="ui-block-a" style="width: 60%">
+                                            <input type="text" id="catererCity" name="catererCity" placeholder="City" />
+                                        </div>
+                                        <div class="ui-block-b" style="width: 40%">
+                                            <select id="catererState" name="catererState">
+                                                <option>NY</option>
+                                                <option>CT</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-b">
+                                        <div class="ui-block-a">
+                                            <input type="text" id="catererZip" name="catererZip" placeholder="Zip" />
+                                        </div>
+                                        <div class="ui-block-b">
+                                            <input type="tel" id="catererPhone" name="catererPhone" placeholder="Phone" />
+                                        </div>
+                                        <div class="ui-block-c">
+                                            <input type="text" id="catererContact" name="catererContact" placeholder="Contact" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li>
+                        <textarea id="additionalComments" name="additionalComments" placeholder="Additional Comments"></textarea>
+                    </li>
+                </ul>
+
+                <a style="float: left" href="#eroStep1" data-icon="arrow-l" data-role="button" data-inline="true" data-iconpos="left" data-mini="true" data-target="eroStep1">Step 1</a>
+                <a style="float: right" href="#eroStep3" data-icon="arrow-r" data-role="button" data-inline="true" data-iconpos="right" data-mini="true" data-target="eroStep3">Finish</a>
+            </div>
+
+            <div id="eroStep3" style="display: none">
+                <div class="ui-corner-all custom-corners">
+                  <div class="ui-bar ui-bar-a">
+                    <h3>Event Request Details</h3>
+                  </div>
+                  <div class="ui-body ui-body-a">
+                    <table class="ui-responsive table-stroke ui-table ui-table-reflow">
+                        <tbody>
+                        <tr>
+                            <th>Tactic</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Curriculum/Modules</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Driver</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Event Type</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Counterpart</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Date 1</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Date 2</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Out of office meeting</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th># of attendees</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Speaker 1</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Speaker 2</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Travel</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Hotel</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Venue 1</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Venue 2</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Caterer</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Additional Comments</th>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                  </div>
+                </div>
+                <a style="float: left" href="#eroStep2" data-icon="arrow-l" data-role="button" data-inline="true" data-iconpos="left" data-mini="true" data-target="eroStep2">Step 2</a>
+                <a id="btnEROSubmit" style="float: right" href="#eroSubmit" data-icon="arrow-r" data-role="button" data-inline="true" data-iconpos="right" data-mini="true">Submit Event Request</a>
+            </div>
+        </form>
+      </ion-content>
+    </ion-view>

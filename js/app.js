@@ -4,6 +4,8 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
+var basePortalUrl = "http://celgene.tsgstage.com/";
+
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
 
@@ -16,11 +18,21 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
+    
     // setup an abstract state for the tabs directive
     .state('tab', {
       url: "/tab",
       abstract: true,
       templateUrl: "templates/tabs.html"
+    })
+    .state("tab.main", {
+        url: "/main",
+        abstract: false,
+        views: {
+            'main-tab': {
+                templateUrl: "templates/home.html"
+            }
+        }
     })
 
     // the pet tab has its own child nav-view and history
@@ -60,10 +72,31 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
           templateUrl: 'templates/about.html'
         }
       }
-    });
+    })
+    .state('tab.register', {
+        url: '/register',
+        views: {
+            'main-tab': {
+                templateUrl: 'templates/register.html',
+                controller: 'registerCtrl'
+            }
+        }
+    })
+    .state('tab.ero',{
+        url: '/ero',
+        views: {
+            'main-tab':{
+                templateUrl: 'templates/ero.html',
+                controller: 'eroCtrl'
+            }
+        }
+
+    })
+    ;
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/pets');
+    //$urlRouterProvider.otherwise('/tab/pets');
+  $urlRouterProvider.otherwise('/tab/main');
 
 });
 
