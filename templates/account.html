@@ -1,0 +1,29 @@
+﻿<ion-view title="CELGENE Bureau">
+  <ion-content has-header="true" has-tabs="false">
+    <div class="list list-inset">
+        <label class="item item-input">
+            <span class="input-label">Username</span>
+            <input type="text" id="UserName" name="UserName" placeholder="Username" ng-model="user.UserName">
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Password</span>
+            <input type="password" placeholder="Password" ng-model="user.Password">
+        </label>
+    </div>
+    <div class="padding">
+        <button class="button button-block button-positive" id="submitButton" ng-click="handleLogin(user,$event)">Sign In</button>
+      </div>
+    <!--<form id="loginForm">
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="UserName">Username:</label>
+            <input type="text" name="UserName" id="UserName" value="" placeholder="Username" ng-model="UserName" />
+        </div>
+
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="Password">Password:</label>
+            <input type="password" name="Password" id="Password" value="" placeholder="Password" ng-model="Password" />
+        </div>
+        <input type="submit" value="Login" id="submitButton" ng-click="handleLogin($event)">
+    </form>-->
+  </ion-content>
+</ion-view>
