@@ -141,8 +141,8 @@ angular.module('starter', ['ionic','ui.bootstrap', 'starter.services', 'starter.
 
   // if none of the above states are matched, use this as the fallback
     //$urlRouterProvider.otherwise('/tab/pets');
-    //$urlRouterProvider.otherwise('/tab/main');
-  $urlRouterProvider.otherwise('/tab/account');
+    $urlRouterProvider.otherwise('/tab/main');
+    //$urlRouterProvider.otherwise('/tab/account');
 
 });
 
