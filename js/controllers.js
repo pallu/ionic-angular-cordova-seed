@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('registerCtrl', function ($scope, $http,$ionicLoading, emsEventsService) {
+.controller('registerCtrl', function ($scope, $http,$ionicLoading, emsEventsService, LoaderService) {
     //controllers.registerCtrl = function ($scope, $http, emsEventsService) {
     debugger;
     $scope.show_section = {};
@@ -13,6 +13,11 @@ angular.module('starter.controllers', [])
     };
     $scope.getAttendeesListByEventStatus = function () {
         //debugger;
+        LoaderService.show();
+
+        // add action here...
+
+        
         emsEventsService.getAttendeesListByEventStatus("17").then(
             function (res) {
                 if (res) {
@@ -20,38 +25,13 @@ angular.module('starter.controllers', [])
                         $scope.icon_section[res[i].EventJobNumber] = "ion-ios7-plus";
                     }
                     $scope.events = res;
-                }
+                };
+                // Hide overlay when done
+                LoaderService.hide();
             }
             );
     };
-    // Trigger the loading indicator
-    $scope.show = function () {
-
-        // Show the loading overlay and text
-        $scope.loading = $ionicLoading.show({
-
-            // The text to display in the loading indicator
-            content: 'Loading',
-
-            // The animation to use
-            animation: 'fade-in',
-
-            // Will a dark overlay or backdrop cover the entire view
-            showBackdrop: true,
-
-            // The maximum width of the loading indicator
-            // Text will be wrapped if longer than maxWidth
-            maxWidth: 200,
-
-            // The delay in showing the indicator
-            showDelay: 500
-        });
-    };
-
-    // Hide the loading indicator
-    $scope.hide = function () {
-        $scope.loading.hide();
-    };
+    
     //$scope.getAttendeesListByEventStatus();
 })
 //.controller('accountCtrl', function($scope, $http, $state, accountService) {
