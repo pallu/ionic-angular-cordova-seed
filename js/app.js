@@ -15,6 +15,27 @@ var loggedIn = false;
 //    $.mobile.allowCrossDomainPages = true;
 
 //});
+
+document.addEventListener('deviceready',function(){
+    navigator.splashscreen.hide();
+});
+
+document.addEventListener("offline", onOffline, false);
+
+function onOffline() {
+    // Handle the offline event
+    //$("#idSignal").addClass("ui-state-disabled");
+    navigator.notification.alert("The device is offline.", function () { });
+
+}
+document.addEventListener("online", onOnline, false);
+
+function onOnline() {
+    // Handle the online event
+    $("#idSignal").removeClass("ui-state-disabled");
+}
+
+
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic','ui.bootstrap', 'starter.services', 'starter.controllers'])
 
