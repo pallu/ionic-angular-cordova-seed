@@ -5,8 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 
-//var basePortalUrl = "http://celgene.tsgstage.com/";
-var basePortalUrl = "http://localhost:23048/";
+var basePortalUrl = "http://celgene.tsgstage.com/";
+//var basePortalUrl = "http://localhost:23048/";
 var loggedIn = false;
 
 //$(document).bind("mobileinit", function () {
