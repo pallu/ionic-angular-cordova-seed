@@ -4,7 +4,9 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
-var basePortalUrl = "http://celgene.tsgstage.com/";
+
+//var basePortalUrl = "http://celgene.tsgstage.com/";
+var basePortalUrl = "http://localhost:23048/";
 var loggedIn = false;
 
 //$(document).bind("mobileinit", function () {
@@ -14,13 +16,15 @@ var loggedIn = false;
 
 //});
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
+angular.module('starter', ['ionic','ui.bootstrap', 'starter.services', 'starter.controllers'])
 
 
 .config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
     //enable CORS
-    $httpProvider.defaults.useXDomain = true;
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    //$httpProvider.defaults.useXDomain = true;
+    //delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
+    $httpProvider.defaults.withCredentials = true;
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router

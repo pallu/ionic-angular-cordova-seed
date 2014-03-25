@@ -1,6 +1,74 @@
-﻿<ion-view title="Register">
+﻿<ion-view title="Events" ng-init="getAttendeesListByEventStatus()">
   <ion-content has-header="true" padding="true" has-footer="true">
-    <p>{{ pet.description }}</p>
-    <p><a class="button button-small icon ion-arrow-left-b" href="#/tab/pets"> All Pets</a></p>
+      <!--<table>
+          <thead>
+              <tr>
+                  <th>LSC</th>
+                  <th>Date Registered</th>
+                  <th>City/State</th>
+                  <th>Status</th>
+              </tr>
+          </thead>
+          <tbody ng-repeat="event in events">
+              <tr>
+                  <td>{{event.EventJobNumber}}</td>
+                  <td></td>
+                  <td>{{event.Location}}</td>
+                  <td>Register New</td>
+              </tr>
+          </tbody>
+      </table>-->
+      <div class="row">
+          <div class="col">LSC</div>
+          <div class="col">Date Registered</div>
+          <div class="col">Status</div>
+      </div>
+      <div class="list" ng-repeat="event in events">
+	      <div class="item item-divider item-icon-left" ng-click="section_click('{{event.EventJobNumber}}')">
+              <i class="icon" ng-class="icon_section['{{event.EventJobNumber}}']"></i>
+       		<div class="row">
+	            <div class="col col-50">{{event.EventJobNumber}} - {{event.EventDate | date:'MMM dd, yyyy @ h:mma'}} <span class="badge badge-positive">{{event.Attendees.length}}</span></div>
+	            <div class="col">{{event.Location}}</div>
+                <div class="col">Register New</div>
+            </div>
+	      </div>	      
+	      <div collapse="!show_section['{{event.EventJobNumber}}']">
+   	        <div ng-repeat="attendee in event.Attendees" class="item">
+	           <div class="row">
+	                <div class="col">{{attendee.Attendee}}</div>
+	                <div class="col">{{attendee.RegistrationDateTime | date:'MMM dd, yyyy @ h:mma'}}</div>
+                    <div class="col">{{attendee.Status}}</div>
+                </div>
+	        </div>
+	      </div>
+	    </div>
+    <!--<ion-list>
+        <ion-item>
+            <div class="row">
+                <div class="col">LSC</div>
+                <div class="col">Date Registered</div>
+                <div class="col">City/State</div>
+                <div class="col">Status</div>
+            </div>
+        </ion-item>
+        <ion-item ng-repeat="event in events">
+            <h3>
+                <div class="row">
+	                <div class="col">{{event.EventJobNumber}}</div>
+	                <div class="col">{{event.EventDate}}</div>
+	                <div class="col">{{event.Location}}</div>
+                    <div class="col">Register New</div>
+                </div>
+	        </h3>
+	        <div ng-repeat="attendee in event.Attendees">
+                <div class="row">
+	                <div class="col">{{attendee.Attendee}}</div>
+	                <div class="col"></div>
+	                <div class="col">{{attendee.RegistrationDateTime}}</div>
+                    <div class="col">{{attendee.Status}}</div>
+                </div>
+	        </div>
+        </ion-item>
+    </ion-list>-->
   </ion-content>
 </ion-view>

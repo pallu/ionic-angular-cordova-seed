@@ -1,19 +1,57 @@
 angular.module('starter.controllers', [])
 
-.controller('registerCtrl', function ($scope, $http, emsEventsService) {
+.controller('registerCtrl', function ($scope, $http,$ionicLoading, emsEventsService) {
     //controllers.registerCtrl = function ($scope, $http, emsEventsService) {
     debugger;
+    $scope.show_section = {};
+    $scope.icon_section = {};
     $scope.events = [];
+    $scope.section_click = function (section, $event) {
+        $scope.show_section[section] = !$scope.show_section[section];
+        $scope.icon_section[section] = $scope.show_section[section] ? "ion-ios7-minus" : "ion-ios7-plus";
+        $scope.$broadcast('scroll.resize');
+    };
     $scope.getAttendeesListByEventStatus = function () {
         //debugger;
         emsEventsService.getAttendeesListByEventStatus("17").then(
             function (res) {
-                if (res)
+                if (res) {
+                    for (var i = 0; i < res.length; i++) {
+                        $scope.icon_section[res[i].EventJobNumber] = "ion-ios7-plus";
+                    }
                     $scope.events = res;
+                }
             }
             );
     };
+    // Trigger the loading indicator
+    $scope.show = function () {
 
+        // Show the loading overlay and text
+        $scope.loading = $ionicLoading.show({
+
+            // The text to display in the loading indicator
+            content: 'Loading',
+
+            // The animation to use
+            animation: 'fade-in',
+
+            // Will a dark overlay or backdrop cover the entire view
+            showBackdrop: true,
+
+            // The maximum width of the loading indicator
+            // Text will be wrapped if longer than maxWidth
+            maxWidth: 200,
+
+            // The delay in showing the indicator
+            showDelay: 500
+        });
+    };
+
+    // Hide the loading indicator
+    $scope.hide = function () {
+        $scope.loading.hide();
+    };
     //$scope.getAttendeesListByEventStatus();
 })
 //.controller('accountCtrl', function($scope, $http, $state, accountService) {
@@ -26,8 +64,12 @@ angular.module('starter.controllers', [])
 
     $scope.handleLogin = function (user,$event) {
         //debugger;
-        var u = user.UserName;// $scope.UserName;
-        var p = user.Password;// $scope.Password;
+        if (user) {
+            $scope.UserName = user.UserName;
+            $scope.Password = user.Password;
+        }
+        var u = $scope.UserName;
+        var p = $scope.Password;
         if (u != '' && p != '') {
             //debugger;
             var submitBtn = null;
@@ -44,7 +86,7 @@ angular.module('starter.controllers', [])
                         window.localStorage["UserName"] = u;
                         window.localStorage["Password"] = p;
                         //$.mobile.changePage("#home");
-                        $state.go('tabs.home');
+                        $state.go('tab.main');
                     }
                     else {
                         navigator.notification.alert("Your login failed", function () { });
@@ -71,6 +113,7 @@ angular.module('starter.controllers', [])
     if (window.localStorage["UserName"] != undefined && window.localStorage["Password"] != undefined) {
         $scope.UserName = (window.localStorage["UserName"]);
         $scope.Password = (window.localStorage["Password"]);
+        
         $scope.handleLogin();
     };
 
